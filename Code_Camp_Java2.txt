@@ -1,0 +1,131 @@
+Ex2: Valey Program ?
+
+Problem Description:
+--------------------
+Varun is very intelligent person.
+He is working in a shopping mall.
+He generally observes the sales pattern throughout the day.
+When observing the sales pattern every day he identifies that on some days there is a pattern
+of valley.
+So with the availability of the past data he tries to identify whether is a valley 
+observed on that day or not.
+A valley is that the elements are decreased continously and after a specific time 
+the elements are continously increased.
+Once the list is given we need to identify the valley is present in the list.
+And also no plateau present in it.
+
+Input format:
+
+Here, we provide first line with 'n' size
+and second line with no. of elements.
+
+Output format:
+---------------
+if there valley exists you should print true otherwise false.
+
+
+Ex1: 
+
+Input: 
+n  = 8
+no = 8 7 6 1 1 2 3 4
+
+Output:
+false
+
+Ex2:
+
+Input:
+n  = 8
+no = 8 7 6 5 1 2 3 4
+
+Output:
+true
+
+
+
+Ex3:
+
+Input:
+n  = 10
+no = 1 1 1 1 1 1 1 1 1 1
+
+Output:
+false
+
+Ex4:
+
+Input:
+n  = 10
+no = 5 4 3 2 1 1 2 3 4 5
+
+Output:
+false
+
+Ex2:
+
+Input:
+n  = 9
+no = 7 8 6 5 4 3 2 1 0
+
+Output:
+false
+
+
+package Pack1;
+import java.util.*;
+public class File2 {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner (System.in);
+	System.out.println("Enter size:");
+	int n = sc.nextInt();  // 6
+	int[] elements = new int[n];
+	System.out.println("Enter "+n+" Elements:");
+	for(int i=0; i<n; i++) 
+	{
+		elements[i]= sc.nextInt();// 5 4 3 4 5 6
+	}
+	
+	if (n==0)
+	{
+		System.out.println("false");
+		return;
+	}
+	
+	int i = 1;
+	while(i < n) // 3 < 6 -> t
+	{
+		if( (elements[i-1]) >   elements[i])// 3>4->f
+		{
+			i = i+1; // i = 3
+		}
+		else
+		{
+			break;
+		}
+	}
+	if( (i==n)|| (i==1))// 3 == 6
+	{
+		System.out.println("false");
+		return;
+	}
+	while(i<n) // 6<6 -> t
+	{
+		if( elements[i-1]  < elements[i])// 5<6-> t
+			{
+			  i = i+1; //6 
+			}
+		else
+		{
+			break;
+		}		
+	}
+	if(i<n)  // 6 < 6
+	{
+		System.out.println("false");
+		return;
+	}
+	System.out.println("true");
+	}}
+	
+==============================================================================================
